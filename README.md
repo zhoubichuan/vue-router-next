@@ -1,4 +1,4 @@
-# vue-router-next [![release candidate](https://img.shields.io/npm/v/vue-router/next.svg)](https://www.npmjs.com/package/vue-router/v/next) [![CircleCI](https://badgen.net/circleci/github/vuejs/vue-router-next/master)](https://circleci.com/gh/vuejs/vue-router-next)
+# vue-router [![release candidate](https://img.shields.io/npm/v/vue-router.svg)](https://www.npmjs.com/package/vue-router) [![CircleCI](https://badgen.net/circleci/github/vuejs/router/main)](https://circleci.com/gh/vuejs/router)
 
 > This is the repository for Vue Router 4 (for Vue 3)
 
@@ -10,6 +10,16 @@ Vue Router is part of the Vue Ecosystem and is an MIT-licensed open source proje
 - [One-time donation via PayPal](https://paypal.me/posva)
 
 <!--sponsors start-->
+
+<h3 align="center">Platinum Sponsors</h3>
+  <p align="center">
+    <a href="https://www.finclip.com/#/home?from=vue" target="_blank" rel="noopener noreferrer">
+      <picture>
+        <source srcset="https://posva-sponsors.pages.dev/logos/fincliplogo_white_svg.svg" media="(prefers-color-scheme: dark)" height="96px" alt="Finogeeks" />
+        <img src="https://posva-sponsors.pages.dev/logos/fincliplogo_black_svg.svg" height="96px" alt="Finogeeks" />
+      </picture>
+    </a>
+  </p>
 
 <h4 align="center">Gold Sponsors</h4>
   <p align="center">
@@ -29,7 +39,6 @@ Vue Router is part of the Vue Ecosystem and is an MIT-licensed open source proje
         <img src="https://posva-sponsors.pages.dev/logos/vuemastery-light.svg" height="42px" alt="VueMastery" />
       </picture>
     </a>
-
     <a href="https://birdeatsbug.com/?utm_source=vuerouter&utm_medium=sponsor&utm_campaign=silver" target="_blank" rel="noopener noreferrer">
       <picture>
         <source srcset="https://posva-sponsors.pages.dev/logos/birdeatsbug-light.svg" media="(prefers-color-scheme: dark)" height="42px" alt="Bird Eats Bug" />
@@ -46,7 +55,6 @@ Vue Router is part of the Vue Ecosystem and is an MIT-licensed open source proje
         <img src="https://posva-sponsors.pages.dev/logos/storyblok.png" height="26px" alt="Storyblok" />
       </picture>
     </a>
-
     <a href="https://nuxtjs.org" target="_blank" rel="noopener noreferrer">
       <picture>
         <source srcset="https://posva-sponsors.pages.dev/logos/nuxt-dark.svg" media="(prefers-color-scheme: dark)" height="26px" alt="NuxtJS" />
@@ -58,7 +66,7 @@ Vue Router is part of the Vue Ecosystem and is an MIT-licensed open source proje
 
 ---
 
-Get started with the [documentation](https://next.router.vuejs.org).
+Get started with the [documentation](https://router.vuejs.org).
 
 ## Quickstart
 
@@ -71,11 +79,11 @@ Get started with the [documentation](https://next.router.vuejs.org).
 
 ## Changes from Vue Router 3
 
-Please consult the [Migration Guide](https://next.router.vuejs.org/guide/migration/).
+Please consult the [Migration Guide](https://router.vuejs.org/guide/migration/).
 
 ## Contributing
 
-See [Contributing Guide](https://github.com/vuejs/vue-router-next/blob/master/.github/contributing.md).
+See [Contributing Guide](https://github.com/vuejs/router/blob/main/.github/contributing.md).
 
 ## Special Thanks
 

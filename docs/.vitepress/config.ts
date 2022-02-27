@@ -1,6 +1,12 @@
 import { defineConfig, UserConfig } from 'vitepress'
 
-const head: UserConfig['head'] = [['link', { rel: 'icon', href: `/logo.png` }]]
+const head: UserConfig['head'] = [
+  ['link', { rel: 'icon', href: `/logo.png` }],
+  [
+    'meta',
+    { name: 'wwads-cn-verify', content: '7e7757b1e12abcb736ab9a754ffb617a' },
+  ],
+]
 
 if (process.env.NODE_ENV === 'production') {
   head.push([
@@ -33,10 +39,10 @@ const config = defineConfig({
   },
 
   themeConfig: {
-    repo: 'vuejs/vue-router-next',
-    docsRepo: 'vuejs/vue-router-next',
+    repo: 'vuejs/router',
+    docsRepo: 'vuejs/router',
     docsDir: 'docs',
-    docsBranch: 'master',
+    docsBranch: 'main',
     editLinks: true,
     editLinkText: 'Suggest changes to this page',
 
@@ -73,11 +79,11 @@ const config = defineConfig({
           },
           {
             text: 'v4.x',
-            items: [{ text: 'v3.x', link: 'https://router.vuejs.org' }],
+            items: [{ text: 'v3.x', link: 'https://v3.router.vuejs.org' }],
           },
           {
             text: 'Changelog',
-            link: 'https://github.com/vuejs/vue-router-next/blob/master/CHANGELOG.md',
+            link: 'https://github.com/vuejs/router/blob/main/CHANGELOG.md',
           },
         ],
 
@@ -203,11 +209,11 @@ const config = defineConfig({
           },
           {
             text: 'v4.x',
-            items: [{ text: 'v3.x', link: 'https://router.vuejs.org/zh' }],
+            items: [{ text: 'v3.x', link: 'https://v3.router.vuejs.org/zh' }],
           },
           {
             text: '更新日志',
-            link: 'https://github.com/vuejs/vue-router-next/blob/master/CHANGELOG.md',
+            link: 'https://github.com/vuejs/router/blob/main/CHANGELOG.md',
           },
         ],
 
