@@ -188,6 +188,14 @@ If you add a `target="_blank"` to your `a` element, you must omit the `@click="n
 - `Component`: VNodes to be passed to a `<component>`'s `is` prop.
 - `route`: resolved normalized [route location](#routelocationnormalized).
 
+Note you should be passing View components' props directly to the `<component>` rather than the `<router-view>`:
+
+```html
+<router-view v-slot="{ Component, route }">
+  <component :is="Component" view-prop="value" />
+</router-view>
+```
+
 ## createRouter
 
 Creates a Router instance that can be used by a Vue app. Check the [`RouterOptions`](#routeroptions) for a list of all the properties that can be passed.
@@ -537,12 +545,12 @@ forward(): void
 
 ### getRoutes
 
-Get a full list of all the [route records](#routerecord).
+Get a full list of all the [route records](#routerecordnormalized).
 
 **Signature:**
 
 ```typescript
-getRoutes(): RouteRecord[]
+getRoutes(): RouteRecordNormalized[]
 ```
 
 ### go
@@ -791,8 +799,7 @@ Route record that can be provided by the user when adding routes via the [`route
 - **Type**: `string`
 - **Details**:
 
-  Path of the record. Should start with `/` unless the record is the child of another record.
-  Can define parameters: `/users/:id` matches `/users/1` as well as `/users/posva`.
+  Path of the record. Should start with `/` unless the record is the child of another record. Can define parameters: `/users/:id` matches `/users/1` as well as `/users/posva`.
 
 - **See Also**: [Dynamic Route Matching](../guide/essentials/dynamic-matching.md)
 
@@ -801,10 +808,7 @@ Route record that can be provided by the user when adding routes via the [`route
 - **Type**: `RouteLocationRaw | (to: RouteLocationNormalized) => RouteLocationRaw` (Optional)
 - **Details**:
 
-  Where to redirect if the route is directly matched. The redirection happens
-  before any navigation guard and triggers a new navigation with the new target
-  location. Can also be a function that receives the target route location and
-  returns the location we should redirect to.
+  Where to redirect if the route is directly matched. The redirection happens before any navigation guard and triggers a new navigation with the new target location. Can also be a function that receives the target route location and returns the location we should redirect to.
 
 ### children
 
@@ -820,9 +824,7 @@ Route record that can be provided by the user when adding routes via the [`route
 - **Type**: `string | string[]` (Optional)
 - **Details**:
 
-  Aliases for the route. Allows defining extra paths that will behave like a
-  copy of the record. This enables paths shorthands like `/users/:id` and
-  `/u/:id`. **All `alias` and `path` values must share the same params**.
+  Aliases for the route. Allows defining extra paths that will behave like a copy of the record. This enables paths shorthands like `/users/:id` and `/u/:id`. **All `alias` and `path` values must share the same params**.
 
 ### name
 
@@ -843,18 +845,19 @@ Route record that can be provided by the user when adding routes via the [`route
 - **Type**: `boolean | Record<string, any> | (to: RouteLocationNormalized) => Record<string, any>` (Optional)
 - **Details**:
 
-  Allows passing down params as props to the component rendered by `router-view`. When passed to a _multiple views record_, it should be an object with the same keys as `components` or a `boolean` to be applied to each component.
-  target location.
+  Allows passing down params as props to the component rendered by `router-view`. When passed to a _multiple views record_, it should be an object with the same keys as `components` or a `boolean` to be applied to each component.target location.
 
 - **See Also**: [Passing props to Route Components](../guide/essentials/passing-props.md)
 
 ### sensitive
+
 - **Type**: `boolean` (Optional) 
 - **Details**: 
 
   Makes the route matching case sensitive, defaults to `false`. Note this can also be set at a route level.
 
 ### strict
+
 - **Type**: `boolean` (Optional) 
 - **Details**: 
 
@@ -1017,7 +1020,7 @@ Normalized route location. Does not have any [redirect records](#routerecordraw)
 - **Type**: [`RouteRecordNormalized[]`](#routerecordnormalized)
 - **Details**:
 
-  Array of [normalized route records](#routerecord) that were matched with the given route location.
+  Array of [normalized route records](#routerecordnormalized) that were matched with the given route location.
 
 ### meta
 

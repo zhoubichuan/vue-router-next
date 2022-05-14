@@ -1,5 +1,10 @@
 # 不同的历史模式
 
+<VueSchoolLink
+  href="https://vueschool.io/lessons/history-mode"
+  title="Learn about the differences between Hash Mode and HTML5 Mode"
+/>
+
 在创建路由器实例时，`history` 配置允许我们在不同的历史模式中进行选择。
 
 ## Hash 模式
@@ -166,6 +171,16 @@ rewrite {
 在 vue-cli、nuxt 和 vite 项目中，这个文件通常放在名为 `static` 或 `public` 的目录下。
 
 你可以在 [Netlify 文档](https://docs.netlify.com/routing/redirects/rewrites-proxies/#history-pushstate-and-single-page-apps)中找到更多关于语法的信息。你也可以[创建一个 `netlify.toml`](https://docs.netlify.com/configure-builds/file-based-configuration/) 来结合其他 Netlify 功能的重定向。
+
+### Vercel
+
+在项目根目录创建一个`vercel.json`文件，内容如下：
+
+```json
+{
+  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
+}
+```
 
 ## Caveat
 

@@ -1,5 +1,10 @@
 # Routes' Matching Syntax
 
+<VueSchoolLink
+  href="https://vueschool.io/lessons/vue-router-4-advanced-routes-matching-syntax"
+  title="Learn how to use advanced route routes' matching syntax"
+/>
+
 Most applications will use static routes like `/about` and dynamic routes like `/users/:userId` like we just saw in [Dynamic Route Matching](./dynamic-matching.md), but Vue Router has much more to offer!
 
 :::tip
@@ -89,7 +94,7 @@ const router = createRouter({
     { path: '/users/:id', sensitive: true },
     // will match /users, /Users, and /users/42 but not /users/ or /users/42/
     { path: '/users/:id?' },
-  ]
+  ],
   strict: true, // applies to all routes
 })
 ```

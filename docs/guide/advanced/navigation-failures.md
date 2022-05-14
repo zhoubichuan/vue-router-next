@@ -1,5 +1,10 @@
 # Waiting for the result of a Navigation
 
+<VueSchoolLink
+  href="https://vueschool.io/lessons/vue-router-4-detecting-navigation-failures"
+  title="Learn how to detect navigation failures"
+/>
+
 When using `router-link`, Vue Router calls `router.push` to trigger a navigation. While the expected behavior for most links is to navigate a user to a new page, there are a few situations where users will remain on the same page:
 
 - Users are already on the page that they are trying to navigate to.
@@ -88,7 +93,6 @@ When returning a new location inside of a Navigation Guard, we are triggering a 
 ```js
 await router.push('/my-profile')
 if (router.currentRoute.value.redirectedFrom) {
-  // redirectedFrom is resolved route location like to and from in navigation
-  // guards
+  // redirectedFrom is resolved route location like to and from in navigation guards
 }
 ```

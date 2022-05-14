@@ -682,7 +682,10 @@ export function createRouter(options: RouterOptions): Router {
     return (failure ? Promise.resolve(failure) : navigate(toLocation, from))
       .catch((error: NavigationFailure | NavigationRedirectError) =>
         isNavigationFailure(error)
-          ? error
+          ? // navigation redirects still mark the router as ready
+            isNavigationFailure(error, ErrorTypes.NAVIGATION_GUARD_REDIRECT)
+            ? error
+            : markAsReady(error) // also returns the error
           : // reject any unknown error
             triggerError(error, toLocation, from)
       )
@@ -935,9 +938,11 @@ export function createRouter(options: RouterOptions): Router {
     markAsReady()
   }
 
-  let removeHistoryListener: () => void | undefined
+  let removeHistoryListener: undefined | null | (() => void)
   // attach listener to history to trigger navigations
   function setupListeners() {
+    // avoid setting up listeners twice due to an invalid first navigation
+    if (removeHistoryListener) return
     removeHistoryListener = routerHistory.listen((to, _from, info) => {
       // cannot be a redirect route because it was in history
       const toLocation = resolve(to) as RouteLocationNormalized
@@ -1100,14 +1105,19 @@ export function createRouter(options: RouterOptions): Router {
    * only be called once, otherwise does nothing.
    * @param err - optional error
    */
-  function markAsReady(err?: any): void {
-    if (ready) return
-    ready = true
-    setupListeners()
-    readyHandlers
-      .list()
-      .forEach(([resolve, reject]) => (err ? reject(err) : resolve()))
-    readyHandlers.reset()
+  function markAsReady<E = any>(err: E): E
+  function markAsReady<E = any>(): void
+  function markAsReady<E = any>(err?: E): E | void {
+    if (!ready) {
+      // still not ready if an error happened
+      ready = !err
+      setupListeners()
+      readyHandlers
+        .list()
+        .forEach(([resolve, reject]) => (err ? reject(err) : resolve()))
+      readyHandlers.reset()
+    }
+    return err
   }
 
   // Scroll behavior
@@ -1212,6 +1222,7 @@ export function createRouter(options: RouterOptions): Router {
           // invalidate the current navigation
           pendingLocation = START_LOCATION_NORMALIZED
           removeHistoryListener && removeHistoryListener()
+          removeHistoryListener = null
           currentRoute.value = START_LOCATION_NORMALIZED
           started = false
           ready = false

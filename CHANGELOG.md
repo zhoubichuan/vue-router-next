@@ -1,3 +1,24 @@
+## [4.0.15](https://github.com/vuejs/router/compare/v4.0.14...v4.0.15) (2022-05-04)
+
+### Bug Fixes
+
+- **matcher:** keep trailing slash on empty optional params ([2f1e9b9](https://github.com/vuejs/router/commit/2f1e9b976d7c5c1ada38c57f276304688d31b7e4)), closes [#1357](https://github.com/vuejs/router/issues/1357)
+- setup history listeners once ([faa8562](https://github.com/vuejs/router/commit/faa85624d37367c638fb9272a4130d8524143120)), closes [#1344](https://github.com/vuejs/router/issues/1344)
+- **view:** handle @vue/compat automatically ([92becf6](https://github.com/vuejs/router/commit/92becf6dc6c4ef21985abb52887b4cec626f5c82)), closes [#1315](https://github.com/vuejs/router/issues/1315)
+
+## [4.0.14](https://github.com/vuejs/router/compare/v4.0.13...v4.0.14) (2022-03-10)
+
+### Features
+
+- **devtools:** use api.now() ([06ac7bb](https://github.com/vuejs/router/commit/06ac7bbc4caaacaf8f054aa2ee164517b99b18ba))
+
+## [4.0.13](https://github.com/vuejs/router/compare/v4.0.12...v4.0.13) (2022-02-28)
+
+### Bug Fixes
+
+- **matcher:** add child before parent when using `addRoute` ([8744bba](https://github.com/vuejs/router/commit/8744bbae7789e236e5308f939fb4b2d946a8ca6d))
+- **ssr:** reject unfinished initial navigation ([509fc0d](https://github.com/vuejs/router/commit/509fc0d5c78b32cbd5ce0c86f716774ad6163cad)), closes [#1305](https://github.com/vuejs/router/issues/1305)
+
 ## [4.0.12](https://github.com/vuejs/router/compare/v4.0.11...v4.0.12) (2021-10-14)
 
 ### Bug Fixes
